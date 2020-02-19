@@ -31,34 +31,6 @@ SD_energy
 
 Because i am very lazy and dont have much time i let R interpret the most used emotions for me using energy and valence.
 
-ggplot(data = Thrash, aes(x = valence, y = energy, color = artist_name)) +
-  geom_jitter() +
-  geom_vline(xintercept = 0.5) +
-  geom_hline(yintercept = 0.5) +
-  scale_x_continuous(expand = c(0, 0), limits = c(0, 1)) +
-  scale_y_continuous(expand = c(0, 0), limits = c(0, 1)) +
-  annotate('text', 0.25 / 2, 0.95, label = "Angry", fontface =
-             "bold") +
-  annotate('text', 1.75 / 2, 0.95, label = "Happy", fontface = "bold") +
-  annotate('text', 1.75 / 2, 0.05, label = "Peaceful", fontface =
-             "bold") +
-  annotate('text', 0.25 / 2, 0.05, label = "Sad", fontface =
-             "bold")
-
-ggplot(data = Thrash, aes(x = danceability, y = energy, color=artist_name )) +
-  geom_jitter() +
-  geom_vline(xintercept = 0.5) +
-  geom_hline(yintercept = 0.5) +
-  scale_x_continuous(expand = c(0, 0), limits = c(0, 1)) +
-  scale_y_continuous(expand = c(0, 0), limits = c(0, 1)) +
-  annotate('text', 0.25 / 2, 0.95, label = "Angry", fontface =
-             "bold") +
-  annotate('text', 1.75 / 2, 0.95, label = "Happy", fontface = "bold") +
-  annotate('text', 1.75 / 2, 0.05, label = "Peaceful", fontface =
-             "bold") +
-  annotate('text', 0.25 / 2, 0.05, label = "Sad", fontface =
-             "bold")
-
 Turns out thrash metal is angry.
 
-
+![image](https://github.com/jordivdommele/Metal/blob/master/Rplot.png?raw=true)
