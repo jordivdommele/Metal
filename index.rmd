@@ -1,0 +1,110 @@
+---
+title:  'Computational Musicology'
+author: 'Jordi van Dommele'
+date:   'February--March 2020'
+output: 
+    flexdashboard::flex_dashboard:
+        storyboard: true
+        theme: flatly
+---
+
+```{r setup}
+
+# In order to use these packages, we need to install flexdashboard, plotly, and Cairo.
+library(tidyverse)
+library(plotly)
+library(spotifyr)
+library(DT)
+source('spotify.R')
+```
+
+### My problem
+
+Besides from being a student musicology im also a musician myself. Studying Musicology is a way for me to spread my chances to find a job in this industry. However i enjoy playing music more then studying it and have decided to cheat the system where possible. My music of choice is Metal since i have always listend to and played this genre. The downside is that there are a lot of subgenres within Metal. Each having their own specifics and characteristics. 
+
+Being a Student i am very short on time so i wont have time to be able to specialise myself in these things. So now i have to figure out where the money is within this genre. For this i need to compare different subgenres and figure out what the global trend is within them and how they are linked to populairy. Using these findings i should be able to get a carreer going in no time.
+
+I will use the following subgenres to analyse; thrash, stoner, doom, heavy and progressive metal. For all the subgenres i will analyse playlists to find commen trends within the subgenre , then i will look which of these can be linked with popularity within this genre.
+
+***
+
+
+-------------------------------------------------------------------------------------------
+
+###First Findings
+
+```{r}
+DT::datatable(s.thrash, options = list(
+  bPaginate = FALSE
+))
+
+DT::datatable(s.prog,options=list(bPaginate= FALSE))
+```
+
+
+
+
+
+
+### The Grammys are angrier than the Edisons
+
+```{r}
+ggplot(data = Thrash, aes(x = valence, y = energy, )) +
+  geom_jitter() +
+  geom_vline(xintercept = 0.5) +
+  geom_hline(yintercept = 0.5) +
+  scale_x_continuous(expand = c(0, 0), limits = c(0, 1)) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 1)) +
+  annotate('text', 0.25 / 2, 0.95, label = "Angry", fontface =
+             "bold") +
+  annotate('text', 1.75 / 2, 0.95, label = "Happy", fontface = "bold") +
+  annotate('text', 1.75 / 2, 0.05, label = "Peaceful", fontface =
+             "bold") +
+  annotate('text', 0.25 / 2, 0.05, label = "Sad", fontface =
+             "bold")
+
+ggplot(data = Thrash, aes(x = danceability, y = energy,  )) +
+  geom_jitter() +
+  geom_vline(xintercept = 0.5) +
+  geom_hline(yintercept = 0.5) +
+  scale_x_continuous(expand = c(0, 0), limits = c(0, 1)) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 1)) +
+  annotate('text', 0.25 / 2, 0.95, label = "Angry", fontface =
+             "bold") +
+  annotate('text', 1.75 / 2, 0.95, label = "Happy", fontface = "bold") +
+  annotate('text', 1.75 / 2, 0.05, label = "Peaceful", fontface =
+             "bold") +
+  annotate('text', 0.25 / 2, 0.05, label = "Sad", fontface =
+             "bold")
+
+ggplot(data = prog, aes(x = valence, y = energy,)) +
+  geom_jitter() +
+  geom_vline(xintercept = 0.5) +
+  geom_hline(yintercept = 0.5) +
+  scale_x_continuous(expand = c(0, 0), limits = c(0, 1)) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 1)) +
+  annotate('text', 0.25 / 2, 0.95, label = "Angry", fontface =
+             "bold") +
+  annotate('text', 1.75 / 2, 0.95, label = "Happy", fontface = "bold") +
+  annotate('text', 1.75 / 2, 0.05, label = "Peaceful", fontface =
+             "bold") +
+  annotate('text', 0.25 / 2, 0.05, label = "Sad", fontface =
+             "bold")
+
+ggplot(data = prog, aes(x = danceability, y = energy, )) +
+  geom_jitter() +
+  geom_vline(xintercept = 0.5) +
+  geom_hline(yintercept = 0.5) +
+  scale_x_continuous(expand = c(0, 0), limits = c(0, 1)) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 1)) +
+  annotate('text', 0.25 / 2, 0.95, label = "Angry", fontface =
+             "bold") +
+  annotate('text', 1.75 / 2, 0.95, label = "Happy", fontface = "bold") +
+  annotate('text', 1.75 / 2, 0.05, label = "Peaceful", fontface =
+             "bold") +
+  annotate('text', 0.25 / 2, 0.05, label = "Sad", fontface =
+             "bold")
+```
+
+***
+
